@@ -1,0 +1,46 @@
+#container {
+    margin-top: 3%;
+    margin-left: 10%;
+    width: 1000px;
+    height: 500px;
+    border: 6px solid cornflowerblue;
+}
+/* Background */
+#canvas {
+
+    width: 1000px;
+    height: 500px;
+}
+i {
+text-align: center;
+}
+body{
+background-color: blanchedalmond;
+}
+/* Navigations */
+#topnav {
+background-color:cornflowerblue;
+padding-top: 2%;
+text-align: center;
+}
+
+/* Buttons */
+button {
+padding-top: 1%;
+padding-bottom: 1%;
+font-size: 20px;
+color:black;
+background-color: blanchedalmond;
+border-style:groove;
+border-color: cornflowerblue;
+}
+/* Headers */
+header{
+color: cornflowerblue;
+font-size: 30px;
+font-family:fantasy;
+text-align: center;
+}
+h6{
+font-size: 20px;
+}
