@@ -4,27 +4,40 @@
     </head>
 
     <body>
-
-        <header>JANKEN
-        <i class="fa-regular fa-hand-back-fist">
-        <i class="fa-solid fa-scroll"></i>
-        <i class="fa-solid fa-scissors"></i>
-        </i> </header>
-
+        <div class="canvasIcons">
+       <i class="fa-solid fa-diamond"></i>
+       <i class="fa-solid fa-scroll"></i>
+       <i class="fa-solid fa-scissors"></i>
+    </div>
     <nav id="topnav">
-    <a><button>Start game</button></a>
+    <a href="front.html"><button id="homeButton">Home</button></a>
     </nav>
-        <div id="container">
-            <div id="game-area"></div>
-            <canvas id="canvas">
+    <div class="buttonContainer">
+        <button class="test"id="rockChoice" onclick="makeChoice">Rock</button>
+        <button class="test" id="paperChoice" onclick="makeChoice">Paper</button>
+        <button id="scissorChoice" onclick="makeChoice">Scissor</button>
+    </div>
 
-            </canvas>
+    <div id="pickChoice">
+    <canvas id="canvas" height="500px" width="900px">
+
+
+    </canvas>
+</div>
+
+    <footer id="gameFooter">
+        <div class="rules">
+        <h6>Rules:</h6>
         </div>
 
+        <div class="hide">
+    <p>
+    Select rock, paper or scissor
+    <br>
+    Scream JANKEN
+    </p>
 
-
-
-    <footer>
+    </div>
     </footer>
 
     <script src="main.js" type="module"></script>

@@ -6,9 +6,9 @@ export class Background {
     this.background.src = "secondBackground.png";
     this.x = 0;
     this.y = 0;
-    this.width = 620;
-    this.height = 420;
-    this.speed = 3;
+    this.width = 1000;
+    this.height = 500;
+    this.speed = 5;
   }
 
   //Print out background
@@ -37,8 +37,8 @@ export class Background {
 export class Obstacle {
   constructor(position, height, width) {
     this.position = position;
-    this.width = width;
     this.height = height;
+    this.width = width;
     this.entity = new Image();
     this.entity.src = "platform.png";
   }
@@ -55,44 +55,46 @@ export class Obstacle {
 }
 
 export class Human extends Obstacle {
-  constructor(position, height, width) {
+  constructor(position, height, width, life) {
     super(position, height, width);
     this.entity = new Image();
     this.entity.src = "human.png";
+    this.life = 10;
   }
 }
 
 export class Cyborg extends Obstacle {
-  constructor(position, height, width) {
+  constructor(position, height, width, life) {
     super(position, height, width);
     this.entity = new Image();
     this.entity.src = "Cyborg.png";
+    this.life = 10;
   }
 }
 
 //Implement Judge?
 
-export class Rock extends Obstacle {
-  constructor(position, height, width) {
-    super(position, height, width);
-    this.entity = new Image();
-    this.entity.src = "rock.png";
-  }
-}
-export class Scissor extends Obstacle {
-  constructor(position, height, width) {
-    super(position, height, width);
-    this.entity = new Image();
-    this.entity.src = "scissors.png";
-  }
-}
-export class Paper extends Obstacle {
-  constructor(position, height, width) {
-    super(position, height, width);
-    this.entity = new Image();
-    this.entity.src = "paper.png";
-  }
-}
+// export class Rock extends Obstacle {
+//   constructor(position, height, width) {
+//     super(position, height, width);
+//     this.entity = new Image();
+//     this.entity.src = "rock.png";
+//   }
+// }
+// export class Scissor extends Obstacle {
+//   constructor(position, height, width) {
+//     super(position, height, width);
+//     this.entity = new Image();
+//     this.entity.src = "scissors.png";
+//   }
+// }
+// export class Paper extends Obstacle {
+//   constructor(position, height, width) {
+//     super(position, height, width);
+//     this.entity = new Image();
+//     this.entity.src = "paper.png";
+//   }
+// }
 
 export class Position {
   constructor(x, y) {

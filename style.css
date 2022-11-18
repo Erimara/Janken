@@ -1,46 +1,220 @@
-#container {
-    margin-top: 3%;
-    margin-left: 10%;
-    width: 1000px;
-    height: 500px;
-    border: 6px solid cornflowerblue;
-}
+
 /* Background */
 #canvas {
-
-    width: 1000px;
-    height: 500px;
+    border: 6px solid cornflowerblue;
+    display: flex;
+   margin-left: 8rem;
 }
-i {
+/* i {
 text-align: center;
-}
+} */
 body{
-background-color: blanchedalmond;
+background-color: rgb(102, 167, 231);
 }
-/* Navigations */
-#topnav {
-background-color:cornflowerblue;
-padding-top: 2%;
+/* Navigations and buttons*/
+#bodynav{
+padding-top: 5%;
 text-align: center;
 }
+#gameStart {
+height: 80px;
+text-align: center;
+color: blanchedalmond;
 
-/* Buttons */
-button {
-padding-top: 1%;
-padding-bottom: 1%;
-font-size: 20px;
-color:black;
-background-color: blanchedalmond;
-border-style:groove;
-border-color: cornflowerblue;
+
+}
+#gameStart:hover {
+zoom: 150%;
+}
+
+/* Canvas */
+#topnav {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+
+    }
+/* Canvas button */
+#homeButton {
+    height: 50px;
+    width: 100px;
+    color: white;
+    background: darkred;
+    transition: background-color 2s ease-out 100ms;
+    border-color: black;
+}
+#homeButton:hover {
+    background-color: coral;
 }
 /* Headers */
 header{
-color: cornflowerblue;
-font-size: 30px;
-font-family:fantasy;
-text-align: center;
-}
-h6{
+width: 100vw;
+height:120px;
+background-color: blanchedalmond;
+color: rgba(0, 0, 0, 0.555);
 font-size: 20px;
+font-family:castellar;
+text-align: center;
+
+}
+.headerDesc{
+color: darkred;
+}
+
+
+/* Front page */
+.animatedIcons{
+color: darkred;
+display: flex;
+flex-direction: row;
+/* NOT WORKING PROPERLY */
+justify-content: space-around;
+padding-top: 5%;
+}
+
+/* Canvas page */
+.canvasIcons{
+    color: darkred;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 3rem;
+    padding: 2%;
+}
+
+
+/* Article section */
+.design{
+color: darkred;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+height: 500px;
+background-color: rgba(255, 235, 205, 0.863)
+}
+.design p{
+color: black;
+
+font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+/* Canvas display rules */
+.hide {
+    display: none;
+    text-align: center;
+    }
+    .rules:hover + .hide {
+        transform: scale(0.8);
+        display: block;
+        font-family: castellar;
+        color: white;
+
+    }
+    h6{
+       color:white;
+        font-size: 15px;
+
+    }
+
+#gameFooter{
+    display: flex;
+    justify-content: center;
+    height: 15px;
+    width: 50vw;
+    margin-left: 16rem;
+    margin-bottom: 3rem;
+    padding-bottom: 4rem;
+    font-size: 15px;
+    background-color: rgba(250, 128, 114, 0.781);
+    border: 5px solid;
+    border-color: cornflowerblue;
+    text-align: center;
+}
+
+#frontFooter {
+width: 100vw;
+    padding: 0.1px;
+    font-size: 20px;
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+
+/* CANVAS Game buttons */
+.buttonContainer {
+    display: flex;
+    justify-content: left;
+    margin-left:8rem;;
+}
+
+/* .buttonContainer:hover {
+     opacity: 70%;
+} */
+
+#rockChoice {
+width: 100px;
+height: 30px;
+color: white;
+    background-color: darkred;
+    border-color: cornflowerblue;
+
+}
+#paperChoice {
+    width: 100px;
+    height: 30px;
+    color: white;
+        background-color: darkred;
+        border-color:  cornflowerblue;
+
+    }
+    #scissorChoice {
+        width: 100px;
+        height: 30px;
+        color: white;
+            background-color: darkred;
+            border-color:  cornflowerblue;
+
+        }
+
+
+/* Intro javascript */
+#startdialogue{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    color: white;
+        background-color: darkred;
+        border-color:  cornflowerblue;
+
+}
+#startIntro {
+    display: none;
+}
+
+.introContainer{
+background-color: rgba(255, 235, 205, 0.274);
+border: 1px solid black;
+font-size: 20px;
+padding: 10rem;
+
+}
+
+#colonel {
+    background-color: rgba(0, 0, 0, 0.253);
+    color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+#hero {
+    background-color: rgba(0, 0, 0, 0.295);
+    color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3rem;
 }
