@@ -1,66 +1,99 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <header>
-        <h1>JANKEN</h1>
-    <div class="headerDesc">
-    <h4>Chronicles of the Janken Master</h4>
-    </div>
+
+
+
+    <body class="frontBody">
+    <header class="frontHead">
+
+    <h1>JANKEN</h1>
+     <h4>Chronicles of the Janken Master</h4>
     </header>
-    <body>
-<section>
-    <div class="animatedIcons">
+
+<aside class="sidebar">
+<h2>A rock paper scissor game</h2>
+<p>A new way for a simple game</p>
+<div class="animatedIcons">
     <div class="fa-3x" style="--fa-animation-duration: 1s;">
     <i class="fa-solid fa-diamond fa-fade"></i>
     <i class="fa-solid fa-scroll fa-beat"></i>
     <i class="fa-solid fa-scissors fa-spin" ></i>
-
-
-    <nav id="bodynav">
-    <a id="gameStart" href="index.html">
-    <i class="fa-solid fa-circle-play fa-bounce"></i> </a>
-    </nav>
 </div>
 </div>
-</section>
-
-<button id="startdialogue">Start dialogue</button>
-<div id="startIntro">
-<div class="introContainer">
-          <div id="colonel"></div>
-          <div id="hero">
-          </div>
-        </div>
-    </div>
+</aside>
+<div class="gif">
+    <video controls loop>
+     <source src="JankenVideo.mp4" type="video/mp4">
+    </video>
+</div>
 
 
-
-
-<section class="design">
+<article class="design">
 <h1>The idea
-    <p>Lorem </p>
 </h1>
-
+<p>The idea behind this project was to picture rock paper scissor in a unique way. <br>
+I imedietly thought of the idead of  doing rock paper scissor in a fighting game style.</p>
 <h1>First draft
-    <p>Insert pictures</p>
 </h1>
-
+<p>To the right you can see pictures of how the design started out.
+The pictures contain lo-fi prototypes of the front page and game page, in the game page you can also see my first characters.
+You can also see the first draft of my platform for the game.
+</p>
 <br>
 <h1>The final design
-    <p>Lorem</p>
 </h1>
-
-<h1>How it turned out
-    <p>Insert gif / pictures</p>
-</h1>
-
-</section>
-
-
+<p>The final design was a lot different from the original idea. <br>
+ The reason for this was that I constantly was getting new ideas.
+ Mid-project i decided to do a complete overhaul of the website using grid for the front page and flexbox for the game page. Which turned out pretty well.
+</p>
 <br>
+<h1>How it turned out
+</h1>
+<p>I have to admit that I am not completely satisfied with the project.
+For the simple reason that I always get new ideas of improvement <br>
+Now for the grande finale, the game. Please press "Start dialogue"
+</p>
+</article>
+
+<picture class="designPic">
+<img src="Frame 2.png" alt="First draft of front page">
+<img src="Frame 5.png" alt="First draft of game page">
+<img src="platform.png" alt="First draft of platform">
+<img src="secondBackground.png" alt="First draft of platform">
+
+</picture>
+
+
+
+<button id="startdialogue">Start dialogue</button>
+
+        <div id="startIntro">
+        <nav id="bodynav">
+        <a  href="front.html">
+        <i class="fa-solid fa-circle-play fa-bounce">Home</i> </a>
+        <a href="index.html">
+        <i class="fa-solid fa-circle-play fa-bounce">Start</i> </a>
+        </nav>
+
+    <picture class="entityHead"><img src="HeaderHuman.png" alt=""> <img src="HeaderCyborg.png" alt=""></picture>
+
+    <div class="introContainer">
+    <div id="hero"></div> <div id="cyborg"></div>
+
+    </div>
+
+    </div>
+
     <footer id="frontFooter">
-    <h4>Markus Andersson</h4>
+    <h4>Markus Andersson
+        <br>
+        Copyright TM
+    </h4>
 </footer>
 <script src="intro.js" type="module"></script>
 <script src="https://kit.fontawesome.com/e16a4f6426.js" crossorigin="anonymous"></script>

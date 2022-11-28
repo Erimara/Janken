@@ -1,13 +1,4 @@
-import {
-  Background,
-  Human,
-  Obstacle,
-  Position,
-  Cyborg,
-  // Rock,
-  // Scissor,
-  // Paper,
-} from "./background.js";
+import { Background, Human, Obstacle, Position, Cyborg } from "./background.js";
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -18,7 +9,7 @@ const Paper = 2;
 const Scissor = 3;
 
 const gameDraw = "DRAW!";
-const playerWins = "Human Wins!";
+const playerWins = "Jakk Wins!";
 const computerWins = "Cyborg wins!";
 
 class Game {
@@ -27,31 +18,16 @@ class Game {
     this.context = context;
     this.background = new Background(canvas.width, canvas.height);
     this.platform = new Obstacle(
-      new Position(canvas.width / 2 - 220, 220),
-      270,
-      420
+      new Position(canvas.width / 2 - 230, 100),
+      450,
+      480
     );
-    this.human = new Human(new Position(10, 30), 280, 280);
+    this.human = new Human(new Position(-60, 30), 280, 280);
     this.cyborg = new Cyborg(
       new Position(canvas.width / 2 + 200, 30),
       310,
       320
     );
-    // this.rock = new Rock(
-    //   new Position(this.human.position.x + 65, this.human.position.y - 20),
-    //   40,
-    //   35
-    // );
-    // this.scissor = new Scissor(
-    //   new Position(this.human.position.x + 95, this.human.position.y - 20),
-    //   40,
-    //   35
-    // );
-    // this.paper = new Paper(
-    //   new Position(this.human.position.x + 130, this.human.position.y - 20),
-    //   40,
-    //   35
-    // );
 
     //Handle choice
     this.player = undefined;
@@ -68,11 +44,10 @@ class Game {
     this.background.backgroundDraw(context);
     this.background.updateBackground();
     this.platform.objectDraw(context);
-    this.human.objectDraw(context);
-    this.cyborg.objectDraw(context);
-    // this.rock.objectDraw(context);
-    // this.scissor.objectDraw(context);
-    // this.paper.objectDraw(context);
+    if (count < 2) {
+      this.human.objectDraw(context);
+      this.cyborg.objectDraw(context);
+    }
   }
   //Seperate the choices
   assignChoice(player, choice) {
@@ -111,14 +86,6 @@ class Game {
     if (this.player === this.computer) {
       return gameDraw;
     }
-
-    // if (result === 0) {
-    //   return "Draw";
-    // } else if (result === 1) {
-    //   return "Human";
-    // } else if (result === 2) {
-    //   return "Cyborg";
-    // }
   }
 
   rockPaperScissor(choice) {
@@ -132,143 +99,92 @@ class Game {
     } else {
       return "Scissor";
     }
-
-    // if (choice <= 1 || choice >= 3) {
-    //   return "Cannot get results";
-    // }
   }
 
   printChoice() {
-    document.getElementById("rockChoice").onclick = function () {
-      console.log("Rock");
+    if (count === 2) {
+      document.getElementById("display").innerHTML =
+        "You used your moves: " + game.calculateWinner() + " Play again?";
+    }
 
+    document.getElementById("rockChoice").onclick = () => {
       game.assignChoice(1, Rock);
       game.assignChoice(2, game.generateRandomNumber());
+
+      count++;
+      disp.innerHTML = count;
+      // if (count === 2) {
+      //   document.getElementById("display").innerHTML =
+      //     "You used your moves: " + game.calculateWinner();
+      // }
     };
-    document.getElementById("paperChoice").onclick = function () {
-      console.log("paper");
+    document.getElementById("paperChoice").onclick = () => {
       game.assignChoice(1, Paper);
       game.assignChoice(2, game.generateRandomNumber());
+
+      count++;
+      // disp.innerHTML = count;
+      // if (count === 2) {
+      //   document.getElementById("display").innerHTML =
+      //     "You used your moves: " + game.calculateWinner();
+      // }
     };
-    document.getElementById("scissorChoice").onclick = function () {
-      console.log("scissor");
+    document.getElementById("scissorChoice").onclick = () => {
       game.assignChoice(1, Scissor);
       game.assignChoice(2, game.generateRandomNumber());
-    };
 
-    this.context.font = "20px castellar";
-    this.context.fillStyle = "white";
-    this.context.strokeText(
-      "Human uses " + this.rockPaperScissor(this.player),
-      this.human.position.x + 180,
-      this.human.position.y + 10
-    );
-    this.context.strokeText(
-      "Life  " + this.human.life,
-      this.human.position.x + 180,
-      this.human.position.y + 50
-    );
-    this.context.strokeText(
-      "Cyborg uses " + this.rockPaperScissor(this.computer),
-      this.cyborg.position.x - 30,
-      this.cyborg.position.y + 10
-    );
-    this.context.strokeText(
-      "Life  " + this.cyborg.life,
-      this.cyborg.position.x - 10,
-      this.cyborg.position.y + 50
-    );
-    // console.log(" cyborg chose" + rockPaperScissor(this.computer));
-    // console.log(" Human Chose" + rockPaperScissor(this.player));
-    // game.assignChoice(1, choice);
-    //console.log("test");
+      count++;
+      // disp.innerHTML = count;
+      // if (count === 2) {
+      //   document.getElementById("display").innerHTML =
+      //     "You used your moves: " + game.calculateWinner();
+      // }
+    };
+    if (count < 2) {
+      this.context.font = "20px castellar";
+      this.context.strokeText(
+        "Jakk uses " + this.rockPaperScissor(this.player),
+        this.human.position.x + 180,
+        this.human.position.y + 10
+      );
+
+      this.context.strokeText(
+        "Cyborg uses " + this.rockPaperScissor(this.computer),
+        this.cyborg.position.x - 30,
+        this.cyborg.position.y + 10
+      );
+    }
   }
 
   printResult() {
     this.context.font = "30px castellar";
-    this.context.fillStyle = "pink";
     this.context.strokeText(
-      this.calculateWinner(this.result),
-      this.platform.position.x + 80,
+      this.calculateWinner(),
+      this.platform.position.x + 117,
       this.platform.position.y
     );
 
-    //console.log(gameWon(result));
+    document.getElementById("restart").onclick = () => {
+      location.reload();
+    };
+
+    let gradient = this.context.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop("0.1", "pink");
+    gradient.addColorStop("0.5", "purple");
+    gradient.addColorStop("1.0", "darkgreen");
+    this.context.strokeStyle = gradient;
   }
 
   generateRandomNumber() {
     return Math.floor(Math.random() * 3) + 1;
   }
-  makeChoice() {
-    // document.getElementById("rockChoice").onclick = function () {
-    //   console.log("Rock");
-    //   game.assignChoice(1, this.choice);
-    //   game.assignChoice(2, game.generateRandomNumber());
-    // };
-    // document.getElementById("paperChoice").onclick = function () {
-    //   console.log("paper");
-    //   game.assignChoice(2, game.generateRandomNumber());
-    // };
-    // document.getElementById("scissorChoice").onclick = function () {
-    //   console.log("scissor");
-    //   game.assignChoice(1, this.choice);
-    //   game.assignChoice(2, game.generateRandomNumber());
-    // };
-    // let rockChoice = document.getElementById("rockChoice");
-    // rockChoice.innerHTML = "Rock";
-    // rockChoice.onclick = function () {
-    //   rockChoice = Rock;
-    //   console.log(" Human Chose: " + rockPaperScissor(rockChoice));
-    //   console.log("click");
-    //   this.context.fillText(
-    //     "Testing text: " + rockPaperScissor(rockChoice),
-    //     this.platform.position.x + 10,
-    //     this.platform.position.y
-    //   );
-    // };
-    // let paperChoice = document.createElement("button");
-    // paperChoice.innerHTML = "Paper";
-    // paperChoice.onclick = function () {
-    //   paperChoice = Paper;
-    //   console.log(" Human Chose: " + rockPaperScissor(paperChoice));
-    //   console.log("click");
-    // };
-    // let scissorChoice = document.createElement("button");
-    // scissorChoice.innerHTML = "Scissor";
-    // scissorChoice.onclick = function () {
-    //   scissorChoice = Scissor;
-    //   console.log(" Human Chose: " + rockPaperScissor(scissorChoice));
-    //   console.log("click");
-    // };
-    // rockChoice.classList.add("menu-choice");
-    // paperChoice.classList.add("menu-choice");
-    // scissorChoice.classList.add("menu-choice");
-    // // document.body.appendChild(rockChoice);
-    // document.body.appendChild(paperChoice);
-    // document.body.appendChild(scissorChoice);
-  }
 }
 const game = new Game(canvas, context);
 
-//Wont need this - > Probably
-// game.makeChoice();
+//HÄMTAR ID FÖR DISPLAY OCH SÄTTER COUNT TILL 0
+let count = 0;
+let disp = document.getElementById("display");
 
-//Functions outside of game loop
-// let result = game.calculateWinner();
-
-//Game won?
-// function gameWon(result) {
-//   if (result === undefined) {
-//     return "SHOW ME YA MOVE";
-//   }
-//   if (result === 0) {
-//     return "Draw";
-//   } else if (result === 1) {
-//     return "Human";
-//   } else if (result === 2) {
-//     return "Cyborg";
-//   }
-// }
 //Handle background
 function animate() {
   game.addBackground();
@@ -277,15 +193,4 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// console.log("Spelare 1 valde " + rockPaperScissor(choice));
-// game.assignChoice(1, choice);
-// choice = game.generateRandomNumber();
-// //choice = parseInt(prompt("Spelare 2:"));
-// console.log("Spelare 2 valde " + rockPaperScissor(choice));
-// game.assignChoice(2, choice);
-
-// console.log("Resultat: " + gameWon(game.calculateWinner()));
-
 game.start();
-
-//Cannot be inside animite because of loop

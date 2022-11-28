@@ -3,29 +3,36 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body class="gameBody">
         <div class="canvasIcons">
        <i class="fa-solid fa-diamond"></i>
        <i class="fa-solid fa-scroll"></i>
        <i class="fa-solid fa-scissors"></i>
     </div>
     <nav id="topnav">
-    <a href="front.html"><button id="homeButton">Home</button></a>
+    <a href="front.html">
+    <button class="homeButton"><i class="fa-solid fa-arrow-left">
+    </i></button>
+    </a>
     </nav>
     <div class="buttonContainer">
-        <button class="test"id="rockChoice" onclick="makeChoice">Rock</button>
-        <button class="test" id="paperChoice" onclick="makeChoice">Paper</button>
-        <button id="scissorChoice" onclick="makeChoice">Scissor</button>
+        <button id="rockChoice">Rock</button>
+        <button  id="paperChoice">Paper</button>
+        <button id="scissorChoice">Scissor</button>
     </div>
 
-    <div id="pickChoice">
+                <!-- NEW FUNCTION -->
+
+
+    <div class="canvasContainer">
     <canvas id="canvas" height="500px" width="900px">
-
-
     </canvas>
 </div>
-
-    <footer id="gameFooter">
+<span id="display">YOU HAVE 10 MOVES. MAKE IT COUNT</span>
+<div class="restartButton">
+<button id="restart">Restart</button>
+</div>
+    <footer class="gameFooter">
         <div class="rules">
         <h6>Rules:</h6>
         </div>

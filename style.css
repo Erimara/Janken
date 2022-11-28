@@ -1,220 +1,376 @@
 
-/* Background */
-#canvas {
-    border: 6px solid cornflowerblue;
-    display: flex;
-   margin-left: 8rem;
+/* Responsiveness */
+@media only screen and (max-width: 800px) {
+
+    /* .frontHead {flex-wrap: wrap}
+    .startdialogue {flex-wrap: wrap}
+    .startIntro {flex-wrap: wrap;}
+
+    .sidebar {flex-wrap: wrap}
+    .gif {flex-wrap: wrap;}
+    .footer {flex-wrap: wrap}
+    .design {flex-wrap: wrap}
+    .designPic {width: 30%;} */
 }
-/* i {
-text-align: center;
-} */
-body{
-background-color: rgb(102, 167, 231);
+@media only screen and (min-width: 801px) {
+
+    /* .frontHead {flex-wrap: wrap}
+    .startdialogue {flex-wrap: wrap;}
+    .startIntro {flex-wrap: wrap;}
+
+    .sidebar {flex-wrap: wrap}
+    .gif {flex-wrap: wrap;}
+    .footer {flex-wrap: wrap}
+    .design {flex-wrap: wrap}
+    .designPic {width: 0%;} */
 }
+
+
+/* Background fundamentals */
+.frontBody{
+/* background-image: url(background.png);
+background-repeat: no-repeat;
+background-size: cover; */
+background-color: #cdf9ff;
+line-height: 01.2;
+display: grid;
+/* grid-auto-flow: row; */
+grid-template-rows: 15em 25em 55em 20em 10em 2em;
+    grid-auto-flow: column;
+    grid-template-areas:
+     "header header header header"
+    ". sidebar gif ."
+    ". design designPic ."
+    ". startdialogue startIntro ."
+    "footer footer footer footer";
+
+
+
+}
+
 /* Navigations and buttons*/
-#bodynav{
-padding-top: 5%;
-text-align: center;
-}
-#gameStart {
-height: 80px;
-text-align: center;
-color: blanchedalmond;
 
-
-}
-#gameStart:hover {
-zoom: 150%;
-}
-
-/* Canvas */
-#topnav {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    text-align: center;
-
-    }
-/* Canvas button */
-#homeButton {
-    height: 50px;
-    width: 100px;
-    color: white;
-    background: darkred;
-    transition: background-color 2s ease-out 100ms;
-    border-color: black;
-}
-#homeButton:hover {
-    background-color: coral;
-}
 /* Headers */
-header{
-width: 100vw;
-height:120px;
-background-color: blanchedalmond;
+.frontHead{
+grid-area: header;
+border: 1.5px solid darkred;
 color: rgba(0, 0, 0, 0.555);
-font-size: 20px;
+font-size: 35px;
 font-family:castellar;
 text-align: center;
+grid-column-start: 1 ;
+grid-column-end: 6;
+padding-bottom: 8em;
+box-shadow: 0 0 2em rgba(220,20,60,0.5);
 
+
+
+/* Animation */
+/* background: linear-gradient(to left, darkred, 20%, darkred 90%, white 100%); */
+background-image: url(Frame\ 6.png);
+background-size:15% auto;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: animate 60s linear infinite;
 }
-.headerDesc{
-color: darkred;
+@keyframes animate {
+    to {
+    background-position:200% center;
+    }
 }
 
 
 /* Front page */
 .animatedIcons{
 color: darkred;
-display: flex;
-flex-direction: row;
-/* NOT WORKING PROPERLY */
-justify-content: space-around;
-padding-top: 5%;
+margin-top: 4em;
+
 }
 
+.sidebar{
+grid-area: sidebar;
+grid-column-start: 1;
+grid-column-end: 4;
+padding: 1em;
+margin-top: 6em;
+text-align: center;
+color:darkred;
+background-color:  blanchedalmond;
+
+
+}
+.gif {
+    grid-area: gif;
+    grid-column-start: 5;
+    margin-top: 6em;
+    padding: 1em;
+    margin-left: 1em;
+    background-color: blanchedalmond;
+    border: 1.5px solid darkred;
+    box-shadow: 0 0 1em rgb(0,0,0,0.5);
+    width: 500px;
+}
+video{
+    width: 500px;
+
+}
+
+/* Article section */
+.design{
+grid-area: design;
+grid-column: span 3;
+background-color: blanchedalmond;
+color: darkred;
+margin-top: 2em;
+}
+.design p{
+color:black;
+font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.designPic{
+grid-area:designPic;
+grid-column-start: 4;
+}
+
+.designPic img{
+    width: 200px;
+    height: 150px;
+    margin-top: 2em;
+    margin-left: 1em;
+    border: 1.5px solid darkred;
+    box-shadow: 0 0 1em rgb(0,0,0,0.5);
+}
+.designPic img:hover{
+    transform: scale(2);
+}
+
+
+/* Intro javascript */
+
+/* Anchors */
+a{
+    color: black
+}
+.entityHead {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    }
+
+#startdialogue{
+    grid-area:startdialogue;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start:4;
+    height: 3em;
+    margin-top: .5em;
+
+    color: white;
+    background-color: darkred;
+    border-color:  darkred;
+    transition: background-color 2s ease-out 100ms;
+}
+#startdialogue:hover {
+    background-color:  rgb(253, 140, 137);
+}
+
+#startIntro {
+    grid-area:startIntro;
+    margin-top: 1em;
+    grid-row-start:4;
+    display: none;
+}
+
+.introContainer{
+font-size: 30px;
+width: 80vw;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+#cyborg {
+    border-right: 1px solid black;
+    justify-content: space-between;
+    color: black;
+}
+
+#hero {
+    border-right: 1px solid black;
+    justify-content: space-between;
+    color: black;
+}
+
+#frontFooter {
+    grid-area: footer;
+    margin-top: 5em;
+    padding-top: 5em;
+    grid-row-start: 6 ;
+    grid-column-start: 1 ;
+    grid-column-end: 6;
+    background-color: blanchedalmond;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    }
+
+
+
+
+
+
+
+
+
 /* Canvas page */
+.gameBody {
+background-color: #cdf9ff;
+line-height: 1.5;
+}
+.canvasContainer{
+    height:"500px";
+    width:"1000px";
+    display: flex;
+    justify-content:center;
+}
+
+#canvas {
+    box-shadow: 0 0 .5em rgba(0,0,0,2);
+    border: 2px solid darkred;
+    }
+
 .canvasIcons{
     color: darkred;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    justify-content: space-between;
     font-size: 3rem;
     padding: 2%;
 }
 
+.homeButton {
+    height: 50px;
+    width: 100px;
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    color: black;
+    background: rgb(218, 101, 101);
+    transition: background-color 2s ease-out 100ms;
+    border-color: #cdf9ff;
 
-/* Article section */
-.design{
-color: darkred;
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-height: 500px;
-background-color: rgba(255, 235, 205, 0.863)
-}
-.design p{
-color: black;
 
-font-family: 'Times New Roman', Times, serif;
-    font-size: 15px;
 }
+.homeButton:hover {
+    background-color: darkred;
+}
+
+
 
 /* Canvas display rules */
 .hide {
     display: none;
-    text-align: center;
+
     }
     .rules:hover + .hide {
-        transform: scale(0.8);
+        transform: scale(0.5);
         display: block;
         font-family: castellar;
         color: white;
 
+
     }
     h6{
        color:white;
-        font-size: 15px;
+        font-size: 18px;
+        justify-content: center;
 
     }
 
-#gameFooter{
-    display: flex;
-    justify-content: center;
-    height: 15px;
-    width: 50vw;
-    margin-left: 16rem;
-    margin-bottom: 3rem;
-    padding-bottom: 4rem;
-    font-size: 15px;
-    background-color: rgba(250, 128, 114, 0.781);
-    border: 5px solid;
-    border-color: cornflowerblue;
-    text-align: center;
-}
+    .gameFooter{
+        display: flex;
+        justify-content: center;
+        height: 15px;
+        margin-top: 1em;
+        padding-bottom: 5em;
+        background-color: rgb(218, 101, 101);
+        border-color:#cdf9ff;
+    }
 
-#frontFooter {
-width: 100vw;
-    padding: 0.1px;
-    font-size: 20px;
-    background-color: blanchedalmond;
-    text-align: center;
-}
+
 
 
 /* CANVAS Game buttons */
 .buttonContainer {
     display: flex;
-    justify-content: left;
-    margin-left:8rem;;
+    justify-content: center;
+
+
 }
 
-/* .buttonContainer:hover {
-     opacity: 70%;
-} */
 
 #rockChoice {
 width: 100px;
 height: 30px;
 color: white;
-    background-color: darkred;
-    border-color: cornflowerblue;
+    background-color: rgb(218, 101, 101);
+    border-color: darkred;
+    border-radius: 50%;
+    box-shadow: 0 0 2em rgba(220,20,60,0.5);
 
 }
+#rockChoice:hover {
+    opacity: 85%;
+}
+
 #paperChoice {
     width: 100px;
     height: 30px;
     color: white;
-        background-color: darkred;
-        border-color:  cornflowerblue;
-
+        background-color: rgb(233, 120, 127);
+        border-color: darkred;
+        border-radius: 50%;
+        box-shadow: 0 0 2em rgba(220,20,60,0.5);
+    }
+    #paperChoice:hover {
+        opacity: 80%;
     }
     #scissorChoice {
         width: 100px;
         height: 30px;
         color: white;
-            background-color: darkred;
-            border-color:  cornflowerblue;
-
+            background-color: rgb(253, 140, 137);
+            border-color: darkred;
+            border-radius: 50%;
+            box-shadow: 0 0 2em rgba(220,20,60,0.5);
+        }
+        #scissorChoice:hover {
+            opacity: 75%;
         }
 
-
-/* Intro javascript */
-#startdialogue{
+#display{
     display: flex;
     justify-content: center;
-    width: 100px;
-    height: 30px;
-    color: white;
-        background-color: darkred;
-        border-color:  cornflowerblue;
-
+    border: 2px solid darkred;
+    margin-top: .2em;
+    font-size: 30px;
+    font-family: castellar;
+    color: darkred;
 }
-#startIntro {
-    display: none;
-}
-
-.introContainer{
-background-color: rgba(255, 235, 205, 0.274);
-border: 1px solid black;
-font-size: 20px;
-padding: 10rem;
-
-}
-
-#colonel {
-    background-color: rgba(0, 0, 0, 0.253);
-    color: white;
-    border: 1px solid black;
+.restartButton{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    padding: 1em;
 }
-
-#hero {
-    background-color: rgba(0, 0, 0, 0.295);
-    color: white;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 3rem;
+#restart {
+    border: 2px solid darkred;
+    font-size: 20px;
+    font-family: castellar;
+    color: darkred;
 }

@@ -14,6 +14,10 @@ Nästa vecka kommer jag vilja lägga in min designprocess på min frontpage, ska
 
 ### Vecka 3
 
+Idag har hälften av veckan gått (22/11). Igår gjorde jag en helt ny design av hemsidan. Jag bestämde mig för att bygga om hemsidan med hjälp utav grid. Efter mycket frustration så har äntligen lyckats skapa en bra grund. Jag har även bestämt mig för att bygga min framsida med hjälp utav grid och min spel sida med flexbox. Jag tänker att jag gör detta för att kunna lära mig så mycket som möjligt. Nackdelen är att det blir mycket kod.
+
+Efter vecka tre har jag fixat klart framsidan och spelsidan med grid och flexbox. Jag har lagt till all funktionalitet i spelet och även funnit mig tid till att rita en egen bakgrund till spelet. Allt i spelet är nu ritat av mig. Jag har lekt runder med färger och har nu besämt mig till 99% hur allt ska se ut. Med hjälp av flexbox på spelsidan har jag gjort den responsiv. Allt som återstår nu är att göra framsidan responsiv, efter det är det bara att renskriva kod/text.
+
 ### Vecka 4
 
 ### Vecka 5

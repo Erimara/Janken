@@ -87,36 +87,58 @@ startdialogue.addEventListener("click", () => {
 
   startIntro.style.display = "block";
 
-  let boss = document.getElementById("colonel");
+  let boss = document.getElementById("cyborg");
 
-  let colonel = Typer(boss, [
-    "Colonel: Jack",
-    " ",
-    "Colonel: I need your help",
-    "Colonel:THE WORLD, needs your help",
-    " ",
-    "Colonel:It's Cyborg.. He's back..",
-    "Colonel:He's back, and he improved his Janken",
-    "Colonel: You are our only hope Jack! ",
+  let cyborg = Typer(boss, [
+    "Cyborg: We meet again",
+    "Cyborg: *Malicious Laughter*",
+    "Cyborg: No child, I am eternal, as are all cyborgs",
+    "Cyborg: And now that i've been revived i will ruin this world",
+    "Cyborg: Silly human, I have surpassed your mediocre janken abilites",
+    "Cyborg: Yes, I have aquired The gem of Janken",
     "",
-    "sHIIIIIII, THATS ALL I NEEDED TO HEAR",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Cyborg: Omae wa mo shinderiou",
+    "",
   ]);
 
   let mainChar = document.getElementById("hero");
   let hero = Typer(mainChar, [
-    "Jack:....",
-    "Jack: What do you want?",
-    "Jack: Im retired....",
-    "Jack: I SAID IM RETIRED!",
-    "Jack: I have a family now",
-    "Jack: No.. It can't be!",
-    "Jack: Janken... I swore to give it up",
-    "Jack: I will fight, but not for you. But for my family!",
+    "Jakk: Cyborg?!?",
+    "Jakk: But you were dead!",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    "Jakk: This can't be",
+    " ",
+    " ",
+    "Jakk: Not if I can help!",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    "Jakk: ........",
+    "Jakk: No.. It can't be!",
+    " ",
+    " ",
+    " ",
+    "Jakk: The Legendary gem of Janken, this is not good..",
+    "Jakk: I have to defeat Cyborg, the only way I know how.",
+    "",
   ]);
 
   setTimeout(hero.stop, 1000);
   setTimeout(hero.play, 2500);
 
-  setTimeout(colonel.stop, 1000);
-  setTimeout(colonel.play, 2000);
+  setTimeout(cyborg.stop, 1000);
+  setTimeout(cyborg.play, 2000);
 });
