@@ -20,6 +20,14 @@ Efter vecka tre har jag fixat klart framsidan och spelsidan med grid och flexbox
 
 ### Vecka 4
 
+Vecka fyra har jag inte gjort särskilt mycket då jag legat före i planeringen. Jag har istället fixat de andra uppgifterna och fixat lite buggar i Rock paper scissor spelet. Ingen push görs
+
 ### Vecka 5
+
+Vecka fem har gått. En vecka kvar innan inlämning. Jag har nu gjort min framsida responsiv. Det finns alltså en layout för laptops och större skärmar, samt en layout för telefoner och paddor med en bredd på max 600px. Layouten för mindre enheter har inga bilder eller videos. Dialogen är heller inte med. Det är en simplifierad och komprimerad version av hemsidan.
+
+Spel-sidan har jag arbetat med flexbox vilket har automatiskt hjälpt mig att göra den delen av min webbsida responsiv.
+
+Inför nästa vecka, sista veckan, ska jag titta mer på det responsiva, snygga upp kod och sen är jag klar!
 
 ### Vecka 6

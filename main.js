@@ -39,12 +39,11 @@ class Game {
   }
 
   addBackground() {
-    //ADD GIFS INSTEAD OF IMAGES.
     this.context.clearRect(0, 0, this.innerHeight, this.innerWidth);
     this.background.backgroundDraw(context);
     this.background.updateBackground();
     this.platform.objectDraw(context);
-    if (count < 2) {
+    if (count < 5) {
       this.human.objectDraw(context);
       this.cyborg.objectDraw(context);
     }
@@ -102,7 +101,7 @@ class Game {
   }
 
   printChoice() {
-    if (count === 2) {
+    if (count === 5) {
       document.getElementById("display").innerHTML =
         "You used your moves: " + game.calculateWinner() + " Play again?";
     }
@@ -123,7 +122,7 @@ class Game {
       game.assignChoice(2, game.generateRandomNumber());
 
       count++;
-      // disp.innerHTML = count;
+      disp.innerHTML = count;
       // if (count === 2) {
       //   document.getElementById("display").innerHTML =
       //     "You used your moves: " + game.calculateWinner();
@@ -134,13 +133,13 @@ class Game {
       game.assignChoice(2, game.generateRandomNumber());
 
       count++;
-      // disp.innerHTML = count;
+      disp.innerHTML = count;
       // if (count === 2) {
       //   document.getElementById("display").innerHTML =
       //     "You used your moves: " + game.calculateWinner();
       // }
     };
-    if (count < 2) {
+    if (count < 5) {
       this.context.font = "20px castellar";
       this.context.strokeText(
         "Jakk uses " + this.rockPaperScissor(this.player),
@@ -157,22 +156,18 @@ class Game {
   }
 
   printResult() {
-    this.context.font = "30px castellar";
-    this.context.strokeText(
-      this.calculateWinner(),
-      this.platform.position.x + 117,
-      this.platform.position.y
-    );
+    if (count < 5) {
+      this.context.font = "30px castellar";
+      this.context.strokeText(
+        this.calculateWinner(),
+        this.platform.position.x + 117,
+        this.platform.position.y
+      );
+    }
 
     document.getElementById("restart").onclick = () => {
       location.reload();
     };
-
-    let gradient = this.context.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop("0.1", "pink");
-    gradient.addColorStop("0.5", "purple");
-    gradient.addColorStop("1.0", "darkgreen");
-    this.context.strokeStyle = gradient;
   }
 
   generateRandomNumber() {

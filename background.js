@@ -3,7 +3,7 @@ export class Background {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
     this.background = new Image();
-    this.background.src = "frame 6.png";
+    this.background.src = "Background/background.png";
     this.x = 0;
     this.y = 0;
     this.width = 900;
@@ -23,8 +23,6 @@ export class Background {
     context.drawImage(this.background, this.x, this.y, this.width, this.height);
   }
 
-  entityDraw() {}
-
   //Move background
   updateBackground() {
     this.y += this.speed;
@@ -40,7 +38,7 @@ export class Obstacle {
     this.height = height;
     this.width = width;
     this.entity = new Image();
-    this.entity.src = "platformTwo.png";
+    this.entity.src = "Background/platform.png";
   }
 
   objectDraw(context) {
@@ -58,7 +56,7 @@ export class Human extends Obstacle {
   constructor(position, height, width) {
     super(position, height, width);
     this.entity = new Image();
-    this.entity.src = "human.png";
+    this.entity.src = "Characters/Jakk.png";
   }
 }
 
@@ -66,7 +64,7 @@ export class Cyborg extends Obstacle {
   constructor(position, height, width) {
     super(position, height, width);
     this.entity = new Image();
-    this.entity.src = "Cyborg.png";
+    this.entity.src = "Characters/NewCyborg.png";
   }
 }
 

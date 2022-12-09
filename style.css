@@ -1,29 +1,66 @@
 
-/* Responsiveness */
-@media only screen and (max-width: 800px) {
-
-    /* .frontHead {flex-wrap: wrap}
-    .startdialogue {flex-wrap: wrap}
-    .startIntro {flex-wrap: wrap;}
-
-    .sidebar {flex-wrap: wrap}
-    .gif {flex-wrap: wrap;}
-    .footer {flex-wrap: wrap}
-    .design {flex-wrap: wrap}
-    .designPic {width: 30%;} */
+/* Responsiveness for front page*/
+/* For phones and tablets */
+@media only screen and (max-width: 600px) {
+/* .frontHead {
+} */
+.frontHead{
+    height: 400px;
 }
-@media only screen and (min-width: 801px) {
-
-    /* .frontHead {flex-wrap: wrap}
-    .startdialogue {flex-wrap: wrap;}
-    .startIntro {flex-wrap: wrap;}
-
-    .sidebar {flex-wrap: wrap}
-    .gif {flex-wrap: wrap;}
-    .footer {flex-wrap: wrap}
-    .design {flex-wrap: wrap}
-    .designPic {width: 0%;} */
+.design {
+    height:fit-content;
 }
+.designPic {
+    display: none;
+}
+.gif {
+    display: none;
+}
+#startdialogue {
+margin:12.5em;
+width: 100px;
+}
+#startIntro {
+border-bottom: 1px solid black;
+font-size: 25px;
+margin-right: 1em;
+}
+.introNav {
+padding: 2em;
+border: 1px solid blanchedalmond;
+background-color: darkred;
+box-shadow: 0 0 .5em rgba(0,0,0,3);
+}
+.entityHead{
+border: 3px solid darkred;
+background-color: blanchedalmond;
+padding: 2em;
+margin-top: 1em;
+box-shadow: 0 0 .5em rgba(0,0,0,3);
+
+
+}
+.entityHead img {
+width: 80px;
+}
+#cyborg {
+    /* Hides Dialogue */
+    display: none;
+}
+#hero{
+    /* Hides dialogue */
+    display: none;
+}
+
+
+
+
+/* Responsiveness for game page*/
+
+/* End of media query */
+}
+
+
 
 
 /* Background fundamentals */
@@ -31,8 +68,9 @@
 /* background-image: url(background.png);
 background-repeat: no-repeat;
 background-size: cover; */
+animation: onload 7s ;
 background-color: #cdf9ff;
-line-height: 01.2;
+line-height: 1.2;
 display: grid;
 /* grid-auto-flow: row; */
 grid-template-rows: 15em 25em 55em 20em 10em 2em;
@@ -43,34 +81,38 @@ grid-template-rows: 15em 25em 55em 20em 10em 2em;
     ". design designPic ."
     ". startdialogue startIntro ."
     "footer footer footer footer";
-
-
-
+}
+@keyframes onload {
+    from {
+opacity: 0%;
+font-size: 200%;}
+    to{
+    opacity: 100%;
+    font-size: 100%;
+    }
 }
 
 /* Navigations and buttons*/
 
 /* Headers */
+
 .frontHead{
 grid-area: header;
-border: 1.5px solid darkred;
-color: rgba(0, 0, 0, 0.555);
+border: 2px solid blanchedalmond;
 font-size: 35px;
 font-family:castellar;
 text-align: center;
 grid-column-start: 1 ;
 grid-column-end: 6;
 padding-bottom: 8em;
-box-shadow: 0 0 2em rgba(220,20,60,0.5);
+box-shadow: 0 0 2em rgba(220,20,60,0.3);
 
 
 
 /* Animation */
-/* background: linear-gradient(to left, darkred, 20%, darkred 90%, white 100%); */
-background-image: url(Frame\ 6.png);
-background-size:15% auto;
+background-image: url(Background/background.png);
+background-size:10% auto;
 background-clip: text;
--webkit-text-fill-color: transparent;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 animation: animate 60s linear infinite;
@@ -80,14 +122,18 @@ animation: animate 60s linear infinite;
     background-position:200% center;
     }
 }
+.frontHead i {
+    font-size: 3rem;
+    margin: 2rem;
+}
 
 
 /* Front page */
 .animatedIcons{
 color: darkred;
 margin-top: 4em;
-
 }
+
 
 .sidebar{
 grid-area: sidebar;
@@ -121,6 +167,7 @@ video{
 .design{
 grid-area: design;
 grid-column: span 3;
+height: fit-content;
 background-color: blanchedalmond;
 color: darkred;
 margin-top: 2em;
@@ -128,7 +175,7 @@ margin-top: 2em;
 .design p{
 color:black;
 font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+font-size: 20px;
 }
 .designPic{
 grid-area:designPic;
@@ -144,7 +191,7 @@ grid-column-start: 4;
     box-shadow: 0 0 1em rgb(0,0,0,0.5);
 }
 .designPic img:hover{
-    transform: scale(2);
+    transform: scale(2.2);
 }
 
 
@@ -152,7 +199,22 @@ grid-column-start: 4;
 
 /* Anchors */
 a{
+    margin-top: 1em;
     color: black
+}
+a:link{
+    text-decoration: none;
+    }
+
+.introNav {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+text-align: center;
+}
+.introNav a:hover {
+color: darkred;
+
 }
 .entityHead {
     display: flex;
@@ -166,15 +228,14 @@ a{
     grid-area:startdialogue;
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start:4;
+    grid-row-start:5;
     height: 3em;
-    margin-top: .5em;
-
     color: white;
     background-color: darkred;
     border-color:  darkred;
     transition: background-color 2s ease-out 100ms;
 }
+
 #startdialogue:hover {
     background-color:  rgb(253, 140, 137);
 }
@@ -208,13 +269,13 @@ justify-content: space-around;
 
 #frontFooter {
     grid-area: footer;
-    margin-top: 5em;
+    margin-top: 7em;
     padding-top: 5em;
     grid-row-start: 6 ;
     grid-column-start: 1 ;
     grid-column-end: 6;
     background-color: blanchedalmond;
-    font-size: 20px;
+    font-size: 10px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -252,14 +313,29 @@ line-height: 1.5;
     justify-content: space-between;
     font-size: 3rem;
     padding: 2%;
+    animation: iconMove;
+    animation-duration: 5s;
+    animation-iteration-count: 100s;
+
 }
+
+@keyframes iconMove{
+
+from{
+    margin-left:100%;
+
+}
+to{
+    margin-left: 0%;
+
+}
+}
+
 
 .homeButton {
     height: 50px;
     width: 100px;
-    display: flex;
     padding: 1em;
-    justify-content: center;
     color: black;
     background: rgb(218, 101, 101);
     transition: background-color 2s ease-out 100ms;
@@ -279,29 +355,27 @@ line-height: 1.5;
 
     }
     .rules:hover + .hide {
-        transform: scale(0.5);
+        transform: scale(1);
         display: block;
         font-family: castellar;
         color: white;
-
-
-    }
-    h6{
-       color:white;
-        font-size: 18px;
-        justify-content: center;
-
     }
 
     .gameFooter{
         display: flex;
-        justify-content: center;
-        height: 15px;
+        justify-content: space-between;
         margin-top: 1em;
-        padding-bottom: 5em;
-        background-color: rgb(218, 101, 101);
+        padding-bottom: 2em;
+        padding-left: 3em;
+        background-color: rgb(215, 118, 118);
         border-color:#cdf9ff;
+        color:white;
+        font-size: 25px;
     }
+    .monk {
+margin-right: 10em;
+  width: 10em;
+        }
 
 
 
@@ -357,8 +431,10 @@ color: white;
 #display{
     display: flex;
     justify-content: center;
-    border: 2px solid darkred;
-    margin-top: .2em;
+    border: 2px solid rgb(253, 140, 137);;
+    /* margin-top: .2em;
+    margin-bottom: .2em; */
+    margin: .2em;
     font-size: 30px;
     font-family: castellar;
     color: darkred;

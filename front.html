@@ -10,14 +10,15 @@
 
     <body class="frontBody">
     <header class="frontHead">
-
-    <h1>JANKEN</h1>
+    <h1> <i class="fa-solid fa-scroll"></i>JANKEN<i class="fa-solid fa-scroll"></i></h1>
      <h4>Chronicles of the Janken Master</h4>
     </header>
 
 <aside class="sidebar">
 <h2>A rock paper scissor game</h2>
-<p>A new way for a simple game</p>
+<p>A new way for a simple game <br>
+Play the video to see the absolute first version of the game.
+</p>
 <div class="animatedIcons">
     <div class="fa-3x" style="--fa-animation-duration: 1s;">
     <i class="fa-solid fa-diamond fa-fade"></i>
@@ -36,51 +37,68 @@
 <article class="design">
 <h1>The idea
 </h1>
-<p>The idea behind this project was to picture rock paper scissor in a unique way. <br>
-I imedietly thought of the idead of  doing rock paper scissor in a fighting game style.</p>
+<p>The idea behind this project was to picture rock paper scissor in a unique way and
+I immedietly thought of the idea of  doing rock paper scissor in a fantasy game style.</p>
 <h1>First draft
 </h1>
 <p>To the right you can see pictures of how the design started out.
-The pictures contain lo-fi prototypes of the front page and game page, in the game page you can also see my first characters.
-You can also see the first draft of my platform for the game.
+The pictures contain lo-fi prototypes of the front page and game page.
+The picture of the sky is a free image I downloaded.
+<br>
+If you're on a moblile, scroll down to the bottom to see the pictures.
 </p>
 <br>
-<h1>The final design
+<h1>The process
 </h1>
-<p>The final design was a lot different from the original idea. <br>
+<p>The final design was a lot different from the original idea.
  The reason for this was that I constantly was getting new ideas.
- Mid-project i decided to do a complete overhaul of the website using grid for the front page and flexbox for the game page. Which turned out pretty well.
+ <br>
+ <br>
+ Mid-project I decided to do a complete overhaul of the website using grid for the front page and flexbox for the game page which turned out pretty well.
+ In the beginning I only thought of creating characters for the villain and the main character. Although I also decided to draw my own background and at the end I also implemented a "hidden" feature which reveals Jakks master.
+ <br>
+ <br>
+I was going for a design which embodied the fantasy genre.
+To achieve this I played around with a lot of different colors, instead of only doing black/white.
+I also made the decision to make the website completely unique, which is why i drew everything myself.
 </p>
 <br>
 <h1>How it turned out
 </h1>
-<p>I have to admit that I am not completely satisfied with the project.
-For the simple reason that I always get new ideas of improvement <br>
-Now for the grande finale, the game. Please press "Start dialogue"
+<p>The website turned out great. There are a lot of great features which I think gives this simple game more life.
+ <br>
+ <br>
+ I had a hard time making the website responsive for mobile devices.
+ In the end I decided to apply a different layout for devices with a width of 600px and below,
+ which was thought to work for most smartphones.
+ <br>
+ <br>
+To start the game press "Start"
 </p>
 </article>
 
 <picture class="designPic">
-<img src="Frame 2.png" alt="First draft of front page">
-<img src="Frame 5.png" alt="First draft of game page">
-<img src="platform.png" alt="First draft of platform">
-<img src="secondBackground.png" alt="First draft of platform">
-
+<img src="Draft Pics/Frame 2.png" alt="First draft of front page">
+<img src="Draft Pics/Frame 5.png" alt="First draft of game page">
+<img src="Draft Pics/platform.png" alt="First draft of platform">
+<img src="Draft Pics/secondBackground.png" alt="First draft of platform">
 </picture>
 
 
 
-<button id="startdialogue">Start dialogue</button>
+<button id="startdialogue">Start</button>
 
         <div id="startIntro">
-        <nav id="bodynav">
-        <a  href="front.html">
-        <i class="fa-solid fa-circle-play fa-bounce">Home</i> </a>
+        <nav class="introNav">
+        <a href="front.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <br>
         <a href="index.html">
-        <i class="fa-solid fa-circle-play fa-bounce">Start</i> </a>
+        <i class="fa-solid fa-circle-play fa-bounce">Play Game</i> </a>
         </nav>
 
-    <picture class="entityHead"><img src="HeaderHuman.png" alt=""> <img src="HeaderCyborg.png" alt=""></picture>
+    <picture class="entityHead"><img src="Characters/JakkHead.png" alt="Main characters head. Human. Red spiky hair. Angry face. "><img src="Characters/HeaderCyborg.png" alt="Villain characters head. Cyborg. Half man half robot"></picture>
 
     <div class="introContainer">
     <div id="hero"></div> <div id="cyborg"></div>
@@ -91,12 +109,13 @@ Now for the grande finale, the game. Please press "Start dialogue"
 
     <footer id="frontFooter">
     <h4>Markus Andersson
-        <br>
-        Copyright TM
+    <br>
+    Copyright
     </h4>
 </footer>
+
 <script src="intro.js" type="module"></script>
 <script src="https://kit.fontawesome.com/e16a4f6426.js" crossorigin="anonymous"></script>
 
-    </body>
+</body>
 </html>
