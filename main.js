@@ -2,23 +2,22 @@ import { Background, Human, Obstacle, Position, Cyborg } from "./background.js";
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
-
-//Assign value to rock paper and scissor
+//Sets value to choices
 const Rock = 1;
 const Paper = 2;
 const Scissor = 3;
-
-const gameDraw = "DRAW!";
-const playerWins = "Jakk Wins!";
+//Sets hard values to possible outcomes
+const gameDraw = "      DRAW!";
+const playerWins = "  Jakk Wins!";
 const computerWins = "Cyborg wins!";
-
+//Main class, handles most methods and draws out objects
 class Game {
   constructor(canvas, context) {
     this.canvas = canvas;
     this.context = context;
     this.background = new Background(canvas.width, canvas.height);
     this.platform = new Obstacle(
-      new Position(canvas.width / 2 - 230, 100),
+      new Position(canvas.width / 2 - 245, 90),
       450,
       480
     );
@@ -26,10 +25,9 @@ class Game {
     this.cyborg = new Cyborg(
       new Position(canvas.width / 2 + 200, 30),
       310,
-      320
+      310
     );
 
-    //Handle choice
     this.player = undefined;
     this.computer = undefined;
   }
@@ -37,7 +35,7 @@ class Game {
   start() {
     animate();
   }
-
+  //Draws out objects
   addBackground() {
     this.context.clearRect(0, 0, this.innerHeight, this.innerWidth);
     this.background.backgroundDraw(context);
@@ -48,7 +46,7 @@ class Game {
       this.cyborg.objectDraw(context);
     }
   }
-  //Seperate the choices
+  //Assign value to the player and computer to differentiate between them
   assignChoice(player, choice) {
     if (player === 1) {
       this.player = choice;
@@ -56,7 +54,7 @@ class Game {
       this.computer = choice;
     }
   }
-
+  //Calculates who wins the game
   calculateWinner() {
     if (this.player === undefined || this.computer === undefined) {
       return "Make a move";
@@ -86,7 +84,7 @@ class Game {
       return gameDraw;
     }
   }
-
+  //Returns choice depending on what is chosen
   rockPaperScissor(choice) {
     if (choice === undefined) {
       return " ";
@@ -99,7 +97,7 @@ class Game {
       return "Scissor";
     }
   }
-
+  //Prints out text and handles the counter
   printChoice() {
     if (count === 5) {
       document.getElementById("display").innerHTML =
@@ -112,10 +110,6 @@ class Game {
 
       count++;
       disp.innerHTML = count;
-      // if (count === 2) {
-      //   document.getElementById("display").innerHTML =
-      //     "You used your moves: " + game.calculateWinner();
-      // }
     };
     document.getElementById("paperChoice").onclick = () => {
       game.assignChoice(1, Paper);
@@ -123,10 +117,6 @@ class Game {
 
       count++;
       disp.innerHTML = count;
-      // if (count === 2) {
-      //   document.getElementById("display").innerHTML =
-      //     "You used your moves: " + game.calculateWinner();
-      // }
     };
     document.getElementById("scissorChoice").onclick = () => {
       game.assignChoice(1, Scissor);
@@ -134,16 +124,12 @@ class Game {
 
       count++;
       disp.innerHTML = count;
-      // if (count === 2) {
-      //   document.getElementById("display").innerHTML =
-      //     "You used your moves: " + game.calculateWinner();
-      // }
     };
     if (count < 5) {
       this.context.font = "20px castellar";
       this.context.strokeText(
         "Jakk uses " + this.rockPaperScissor(this.player),
-        this.human.position.x + 180,
+        this.human.position.x + 100,
         this.human.position.y + 10
       );
 
@@ -154,11 +140,12 @@ class Game {
       );
     }
   }
-
+  //Prints out the winner
   printResult() {
-    if (count < 5) {
+    if (count <= 5) {
       this.context.font = "30px castellar";
-      this.context.strokeText(
+      this.context.fillStyle = "darkred";
+      this.context.fillText(
         this.calculateWinner(),
         this.platform.position.x + 117,
         this.platform.position.y
@@ -169,22 +156,33 @@ class Game {
       location.reload();
     };
   }
-
+  //Handles the mischiveous players who still click on buttons.
+  stopClicking() {
+    if (count > 5) {
+      this.context.font = "30px castellar";
+      this.context.strokeText(
+        "Nope, no hidden feature, Game Over.",
+        this.platform.position.x - 100,
+        this.platform.position.y
+      );
+    }
+  }
+  //Computer choice. Starts at 1.
   generateRandomNumber() {
     return Math.floor(Math.random() * 3) + 1;
   }
 }
 const game = new Game(canvas, context);
 
-//HÄMTAR ID FÖR DISPLAY OCH SÄTTER COUNT TILL 0
 let count = 0;
 let disp = document.getElementById("display");
 
-//Handle background
+//Main function
 function animate() {
   game.addBackground();
   game.printResult();
   game.printChoice();
+  game.stopClicking();
   requestAnimationFrame(animate);
 }
 

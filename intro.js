@@ -1,5 +1,6 @@
-function Typer(element, options, scenes) {
-  let defaultOptions = { erase: 60, type: 80, break: 1000 };
+//Main dialogue function. Set default values
+function dialogue(element, options, scenes) {
+  let defaultOptions = { erase: 60, write: 80, break: 1000 };
 
   let config = {};
 
@@ -24,7 +25,8 @@ function Typer(element, options, scenes) {
 
   let currentSceneIndex = 0;
 
-  function type() {
+  //Writes out text with sceneIndex
+  function write() {
     if (status !== "playing") {
       return;
     }
@@ -38,9 +40,9 @@ function Typer(element, options, scenes) {
     state = scene.substr(0, state.length + 1);
     element.textContent = state;
 
-    setTimeout(type, config.type);
+    setTimeout(write, config.write);
   }
-
+  //Removes text from sceneIndex
   function erase() {
     if (status !== "playing") {
       return;
@@ -53,7 +55,7 @@ function Typer(element, options, scenes) {
         currentSceneIndex = 0;
       }
 
-      return type();
+      return write();
     }
 
     state = state.substr(0, state.length - 1);
@@ -61,15 +63,15 @@ function Typer(element, options, scenes) {
 
     setTimeout(erase, config.erase);
   }
-
+  //Pauses dialogue for x amount of seconds
   function stop() {
     status = "ready";
   }
-
+  // Sets dialogue speed to x amount of seconds
   function play() {
     if (status === "ready") {
       status = "playing";
-      type();
+      write();
     }
   }
 
@@ -77,7 +79,7 @@ function Typer(element, options, scenes) {
 
   return { play: play, stop: stop };
 }
-
+//Hides dialogue and plays once button is pressed
 let startdialogue = document.getElementById("startdialogue");
 
 startdialogue.addEventListener("click", () => {
@@ -89,13 +91,15 @@ startdialogue.addEventListener("click", () => {
 
   let boss = document.getElementById("cyborg");
 
-  let cyborg = Typer(boss, [
+  let cyborg = dialogue(boss, [
     "Cyborg: We meet again",
     "Cyborg: *Malicious Laughter*",
-    "Cyborg: No human, I am eternal, as are all cyborgs",
+    "Cyborg: No Jakk, I am eternal, as are all cyborgs",
     "Cyborg: And now I will ruin this world",
     "Cyborg: Silly human, I have surpassed your mediocre janken abilites",
+    "",
     "Cyborg: Yes, I have aquired The gem of Janken",
+    "",
     "",
     "",
     "",
@@ -117,7 +121,7 @@ startdialogue.addEventListener("click", () => {
   ]);
 
   let mainChar = document.getElementById("hero");
-  let hero = Typer(mainChar, [
+  let hero = dialogue(mainChar, [
     "Jakk: Cyborg?!?",
     "Jakk: But you were dead!",
     " ",
@@ -152,7 +156,7 @@ startdialogue.addEventListener("click", () => {
     "",
     "",
   ]);
-
+  //Handles erase and write speed.
   setTimeout(hero.stop, 1000);
   setTimeout(hero.play, 2500);
 

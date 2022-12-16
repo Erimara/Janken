@@ -10,8 +10,7 @@ export class Background {
     this.height = 500;
     this.speed = 5;
   }
-
-  //Print out background
+  //Draws image twice
   backgroundDraw(context) {
     context.drawImage(
       this.background,
@@ -22,8 +21,7 @@ export class Background {
     );
     context.drawImage(this.background, this.x, this.y, this.width, this.height);
   }
-
-  //Move background
+  //Shifts through the two drawed images and sets speed
   updateBackground() {
     this.y += this.speed;
     if (this.y > 0 + this.height) {
@@ -31,7 +29,7 @@ export class Background {
     }
   }
 }
-
+//Classes that contain all entities and obstacles
 export class Obstacle {
   constructor(position, height, width) {
     this.position = position;

@@ -1,78 +1,9 @@
-
-/* Responsiveness for front page*/
-/* For phones and tablets */
-@media only screen and (max-width: 600px) {
-/* .frontHead {
-} */
-.frontHead{
-    height: 400px;
-}
-.design {
-    height:fit-content;
-}
-.designPic {
-    display: none;
-}
-.gif {
-    display: none;
-}
-#startdialogue {
-margin:12.5em;
-width: 100px;
-}
-#startIntro {
-border-bottom: 1px solid black;
-font-size: 25px;
-margin-right: 1em;
-}
-.introNav {
-padding: 2em;
-border: 1px solid blanchedalmond;
-background-color: darkred;
-box-shadow: 0 0 .5em rgba(0,0,0,3);
-}
-.entityHead{
-border: 3px solid darkred;
-background-color: blanchedalmond;
-padding: 2em;
-margin-top: 1em;
-box-shadow: 0 0 .5em rgba(0,0,0,3);
-
-
-}
-.entityHead img {
-width: 80px;
-}
-#cyborg {
-    /* Hides Dialogue */
-    display: none;
-}
-#hero{
-    /* Hides dialogue */
-    display: none;
-}
-
-
-
-
-/* Responsiveness for game page*/
-
-/* End of media query */
-}
-
-
-
-
 /* Background fundamentals */
 .frontBody{
-/* background-image: url(background.png);
-background-repeat: no-repeat;
-background-size: cover; */
 animation: onload 7s ;
 background-color: #cdf9ff;
 line-height: 1.2;
 display: grid;
-/* grid-auto-flow: row; */
 grid-template-rows: 15em 25em 55em 20em 10em 2em;
     grid-auto-flow: column;
     grid-template-areas:
@@ -85,7 +16,7 @@ grid-template-rows: 15em 25em 55em 20em 10em 2em;
 @keyframes onload {
     from {
 opacity: 0%;
-font-size: 200%;}
+font-size: 150%;}
     to{
     opacity: 100%;
     font-size: 100%;
@@ -94,11 +25,12 @@ font-size: 200%;}
 
 /* Navigations and buttons*/
 
-/* Headers */
-
+/* Header */
 .frontHead{
 grid-area: header;
-border: 2px solid blanchedalmond;
+border: 1px solid blanchedalmond;
+border-bottom: 5px solid blanchedalmond;
+border-top: 5px solid blanchedalmond;
 font-size: 35px;
 font-family:castellar;
 text-align: center;
@@ -128,7 +60,9 @@ animation: animate 60s linear infinite;
 }
 
 
-/* Front page */
+
+
+/* Front page icons */
 .animatedIcons{
 color: darkred;
 margin-top: 4em;
@@ -144,9 +78,12 @@ margin-top: 6em;
 text-align: center;
 color:darkred;
 background-color:  blanchedalmond;
+border-top: 1px solid darkred;
+
 
 
 }
+/* Looped video */
 .gif {
     grid-area: gif;
     grid-column-start: 5;
@@ -170,12 +107,17 @@ grid-column: span 3;
 height: fit-content;
 background-color: blanchedalmond;
 color: darkred;
+border-top: 1px solid darkred;
+border-left: 1px solid darkred;
+border-right: 1px solid darkred;
 margin-top: 2em;
+padding-left: .2em;
 }
 .design p{
 color:black;
 font-family: 'Times New Roman', Times, serif;
 font-size: 20px;
+
 }
 .designPic{
 grid-area:designPic;
@@ -193,11 +135,24 @@ grid-column-start: 4;
 .designPic img:hover{
     transform: scale(2.2);
 }
+.designPic i {
+    background-image: url(Background/background.png);
+    display: flex;
+    justify-content: space-around;
+    margin: 4em;
+    font-size: 3em;
+    animation:animate 50s linear infinite;
+    background-size:50% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.designPic i:hover{
+    animation:animate 10s linear infinite;
+}
 
 
 /* Intro javascript */
-
-/* Anchors */
 a{
     margin-top: 1em;
     color: black
@@ -245,6 +200,7 @@ color: darkred;
     margin-top: 1em;
     grid-row-start:4;
     display: none;
+    box-shadow: 0 0 2em rgba(220,20,60,0.1);
 }
 
 .introContainer{
@@ -253,6 +209,8 @@ width: 80vw;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-around;
+box-shadow: 0 0 1em rgb(0,0,0,0.5);
+margin-top: 1em;
 }
 
 #cyborg {
@@ -267,6 +225,7 @@ justify-content: space-around;
     color: black;
 }
 
+/* Footer for front page */
 #frontFooter {
     grid-area: footer;
     margin-top: 7em;
@@ -295,15 +254,27 @@ background-color: #cdf9ff;
 line-height: 1.5;
 }
 .canvasContainer{
-    height:"500px";
-    width:"1000px";
     display: flex;
     justify-content:center;
+
 }
 
 #canvas {
     box-shadow: 0 0 .5em rgba(0,0,0,2);
-    border: 2px solid darkred;
+    border: 2px solid  rgb(218, 101, 101);
+    animation: canvasMove;
+    animation-duration: 2s;
+    }
+    @keyframes canvasMove{
+
+        from{
+        margin-right:100%;
+
+        }
+        to{
+        margin-left: 0%;
+
+        }
     }
 
 .canvasIcons{
@@ -311,45 +282,16 @@ line-height: 1.5;
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    font-size: 3rem;
-    padding: 2%;
-    animation: iconMove;
-    animation-duration: 5s;
-    animation-iteration-count: 100s;
-
-}
-
-@keyframes iconMove{
-
-from{
-    margin-left:100%;
-
-}
-to{
-    margin-left: 0%;
-
-}
-}
-
-
-.homeButton {
-    height: 50px;
-    width: 100px;
-    padding: 1em;
-    color: black;
-    background: rgb(218, 101, 101);
-    transition: background-color 2s ease-out 100ms;
-    border-color: #cdf9ff;
-
-
-}
-.homeButton:hover {
-    background-color: darkred;
+    margin-top: 2em;
+    font-size: 2rem;
+    padding: .5em;
 }
 
 
 
-/* Canvas display rules */
+
+
+/* Canvas rules */
 .hide {
     display: none;
 
@@ -357,25 +299,26 @@ to{
     .rules:hover + .hide {
         transform: scale(1);
         display: block;
-        font-family: castellar;
-        color: white;
+
     }
 
     .gameFooter{
         display: flex;
         justify-content: space-between;
-        margin-top: 1em;
+        margin-top: .5em;
         padding-bottom: 2em;
         padding-left: 3em;
-        background-color: rgb(215, 118, 118);
-        border-color:#cdf9ff;
-        color:white;
+        background-color: rgb(167, 43, 43);
+        border: 2px solid  rgb(218, 101, 101);
+        color:black;
         font-size: 25px;
+        color:blanchedalmond ;
+        font-family: castellar;
     }
     .monk {
 margin-right: 10em;
-  width: 10em;
-        }
+width: 10em;
+    }
 
 
 
@@ -384,15 +327,28 @@ margin-right: 10em;
 .buttonContainer {
     display: flex;
     justify-content: center;
-
+    animation: buttonMove;
+    animation-duration: 2s;
 
 }
 
 
+@keyframes buttonMove{
+
+from{
+margin-left:100%;
+
+}
+to{
+margin-left: 0%;
+
+}
+}
+
 #rockChoice {
 width: 100px;
-height: 30px;
-color: white;
+height: 50px;
+color: blanchedalmond;
     background-color: rgb(218, 101, 101);
     border-color: darkred;
     border-radius: 50%;
@@ -405,8 +361,8 @@ color: white;
 
 #paperChoice {
     width: 100px;
-    height: 30px;
-    color: white;
+    height: 50px;
+    color: blanchedalmond;
         background-color: rgb(233, 120, 127);
         border-color: darkred;
         border-radius: 50%;
@@ -417,8 +373,8 @@ color: white;
     }
     #scissorChoice {
         width: 100px;
-        height: 30px;
-        color: white;
+        height: 50px;
+        color: blanchedalmond;
             background-color: rgb(253, 140, 137);
             border-color: darkred;
             border-radius: 50%;
@@ -427,26 +383,138 @@ color: white;
         #scissorChoice:hover {
             opacity: 75%;
         }
-
+/* Counter and display winner */
 #display{
     display: flex;
     justify-content: center;
-    border: 2px solid rgb(253, 140, 137);;
-    /* margin-top: .2em;
-    margin-bottom: .2em; */
-    margin: .2em;
-    font-size: 30px;
+    border: 2px solid rgb(218, 101, 101);
+    margin-left: 7.4em;
+    margin-right: 7.4em;
+    margin-bottom: .2em;
+    font-size: 20px;
     font-family: castellar;
-    color: darkred;
+    background-color: rgb(167, 43, 43);
+    color: blanchedalmond;
 }
+/* Restart button */
 .restartButton{
     display: flex;
     justify-content: center;
+    align-content: space-between;
     padding: 1em;
 }
 #restart {
+    background-color: rgb(218, 101, 101);
     border: 2px solid darkred;
     font-size: 20px;
     font-family: castellar;
-    color: darkred;
+    color: blanchedalmond;
+}
+#restart:hover {
+    background-color: darkred;
+}
+/* Button for front page */
+.homeButton {
+    background: rgb(218, 101, 101);
+    border: 2px solid darkred;
+    transition: background-color 2s ease-out 100ms;
+    color: blanchedalmond;
+    padding: 1em;
+    padding-right: 3em;
+
+
+
+}
+.homeButton:hover {
+    background-color: darkred;
+}
+
+
+/* Responsiveness*/
+/* Removes pictures for smaller tablets and smartphones*/
+@media only screen and (max-width: 600px) {
+.designPic {
+    display: none;
+}
+.gif {
+    display: none;
+}
+
+
+
+}
+
+/* Scales the gamearea and creates new dialogue layout */
+@media only screen and (max-width:900px){
+    #canvas{
+        height: 250px;
+        width:420px;
+      }
+    #display{
+   margin-left: 8em;
+
+
+    }
+    .rules:hover + .hide{
+        transform:scale(.8);
+        font-size: 15px;
+    }
+
+
+    .introNav {
+        padding: 2em;
+        border: 1px solid blanchedalmond;
+        background-color: darkred;
+        box-shadow: 0 0 .5em rgba(0,0,0,3);
+        }
+        .introNav a:hover{
+        color: blanchedalmond;
+        }
+        .entityHead{
+        border: 3px solid darkred;
+        background-color: blanchedalmond;
+        padding: 2em;
+        margin-top: 1em;
+        box-shadow: 0 0 .5em rgba(0,0,0,3);
+
+
+        }
+        .entityHead img {
+        width: 80px;
+        }
+
+    .introContainer{
+        font-size: 10px;
+        border: 3px solid darkred;
+        background-color: blanchedalmond;
+        padding: 2em;
+        margin-top: 1em;
+        }
+
+}
+
+/* Scales for smaller laptops */
+@media only screen and (max-width: 1200px) {
+
+    .frontHead i {
+    display: none;
+    }
+    .design {
+        height:fit-content;
+    }
+
+    #startdialogue {
+    margin:12.5em;
+    width: 100px;
+    }
+    #startIntro {
+    font-size: 25px;
+    margin-right: 1em;
+    }
+
+
+
+
+
+    /* End of media query */
 }
